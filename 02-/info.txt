@@ -1,0 +1,19 @@
+versioning 4.18.2
+
+3rd part (last part) - Minor Fixes (Optional)
+Latest -> 4.18.5
+
+2nd Part - Recommended Bug Fix (Security Fix)
+Latest -> 4.19.1
+
+3rd Major Release
+5.0.0 never update when you have create project on 4 version as it can bleach security major bugs
+always create new project with new version
+
+caret(^)
+it means that it will not update the major Release but other two
+
+squiggly or tilde (~)
+it means it will only update the minor fixes
+
+if i write latest it will take always take latest

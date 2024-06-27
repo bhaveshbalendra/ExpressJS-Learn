@@ -1,0 +1,47 @@
+res.end(<h1>hi</h1>)
+this is server side rendering server give html as res
+so its make slow 
+templating engin so we have modules for that like ejs,pug,handlebar do server side rendering
+
+set view engin 
+app.set("view engine","ejs")
+
+const path = require("path")
+app.set("views",path.resolve("./views"))
+
+return res.render("home"); // home.ejs is html file
+  return res.render("home", { urls: allUrls }); // in curly bracket we can pass variable
+
+
+`<html>
+    <head></head>
+    <body>
+    <ol>
+    ${allUrls
+      .map(
+        (url) =>
+          `<li>${url.shortId} - ${url.redirectURL} - ${url.visitHistory.length}</li>`
+      )
+      .join("")}</ol>
+    </body>
+    </html>`
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hey form Server</h1>
+    <% urls.forEach(url => { %>
+    <li><%= url.shortId %></li>
+    <% }) %>
+  </body>
+</html>
+
+app.get("/api/url/test", async (req, res) => {
+  const allUrls = await URL.find({});
+  return res.render("home", { urls: allUrls });
+});

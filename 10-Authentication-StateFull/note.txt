@@ -1,0 +1,15 @@
+authntication pattern 
+state full - which maintains state or data or server side
+stateless - which has no state
+
+
+statefull
+session uid given by server
+this can be used to get post req
+this uid can be given by cookies(for server-side ejs) ,response ,headers(for rest apis)
+
+client -> auth middleware (check for cookie value or uid if valid call next()) -> endPoint route
+
+npm i cookie-parser
+
+npm i uuid

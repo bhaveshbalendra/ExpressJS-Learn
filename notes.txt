@@ -1,0 +1,75 @@
+** common api name
+  https://www.mockaroo.com/
+
+**two types of module global and core module**
+->core module have two types global(console we don't have to import and this is part of nodejs ) and non-global(fs,buffer,http)
+
+
+**Tricks**
+-> cl(__dirname) and cl(__filename)
+-> if we want to import single method from module
+   const fs = require("fs").writeFile;
+->package.json contain script all dependencies name we can create our own scripts
+->package-lock.json detail about the dependencies
+->node_modules have all modules which we install but it also some time install the other module which are dependent 
+  on the module which we install. We should ignore the node_modules to push to the github so make file on the root
+  named .gitignore(write text inside /node_modules)
+-> npm i nodemon -g (-g represent global download on system use this command on c\user\hp\Desktop not in project)
+   now to run this we can press (ctrl+s) or (nodemon index.js). don't use node index.js
+->nodejs is async, 
+-> cl(process.argsv[2]) this return (node index.js hello hi) agrument passed with commands it will return hello
+   create const input = process.argv and use input[2] 
+->npm i mongoose
+
+NodeJS
+request
+req.url (/ or /about) const myUrl = url.parse(req.url, true),myUrl.pathname (req.url),myUrl.query.name
+req.method (string "GET" ,"POST")
+response
+res.end("text")
+
+
+ExpressJS
+method 
+app.get("url",(req,res)=>{})
+app.post("",())
+app.route("common url").get().patch()
+
+request
+req.url (/ or /about)
+req.path (/ or /about)
+req.originalUrl (/ or /about)
+req.params.id root parameters
+req.query query string parameters
+req.body
+req.headers
+
+response
+res.end("text")
+res.json({})
+res.send("<h1>Hello</h1>")
+res.status(404).send('Not Found');
+res.redirect('/new-page');
+res.setHeader("Myname","bhavesh")
+
+
+const html = fs.readFile("./index.html","utf-8")
+res(html)
+
+html.replace()
+
+path.toLocaleLowerCase()
+
+res.writeHead(200,{
+   "Content-Type":"text/html",
+   "my-header" :"Hello, World"
+})
+
+fs.readFile("products.json","utf-8",(err,data) =>{
+   let products = JSON.parse(data)
+   response.end(data)
+})
+
+let products = fs.readFile("products.json","utf-8")
+let newproducts = JSON.parse(products)
+let products = JSON.parse(fs.readFile("products.json","utf-8"))
